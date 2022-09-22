@@ -3,17 +3,18 @@ import styled from 'styled-components'
 
 import CustomFilterOptions from './CustomFilterOptions';
 
-import myImg from '../assets/img/img1.jpg'
+import myImg from '../assets/img/img1.jpg';
+import Webcam from "react-webcam";
 
 const ImgWrapperStyles = styled.div`
-    width: 100%;
+    // width: 100%;
     display: flex;
     justify-content: space-between;
     .img-container {
         width: fit-content;
         max-width: 80%;
         height: 360px;
-        margin: auto;
+        // margin: auto;
         margin-bottom: 4rem;
         box-shadow: 0 8px 15px var(--deep-dark);
         border: 1px solid var(--deep-dark);
@@ -27,17 +28,41 @@ const ImgWrapperStyles = styled.div`
     }
 `
 
+
+const cameraWidth = 600;
+const cameraHeight = 400;
+const aspectRatio = cameraWidth / cameraHeight;
+
+const videoConstraints = {
+    width: {
+        min: cameraWidth
+    },
+    height: {
+        min: cameraHeight
+    },
+    aspectRatio
+};
+
+
+
+
 const ImgWrapper = ({ filterClass, openCustom, imgRef }) => {
 
     return (
         <ImgWrapperStyles>
             <figure className='img-container'>
-                <img
+            <Webcam
+            filterClass={filterClass}
+            ref={imgRef}
+            src={myImg}
+            videoConstraints={videoConstraints} width={cameraWidth} height={cameraHeight}
+             />
+                {/* <img
                     className={filterClass}
                     ref={imgRef}
                     src={myImg}
                     alt=''
-                />
+                /> */}
             </figure>
             {openCustom &&
                 <CustomFilterOptions imgRef={imgRef}/>

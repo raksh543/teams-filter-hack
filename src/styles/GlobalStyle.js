@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
     :root{
-        --dark-bg: #2B2F38;
+        --dark-bg: #201F1F;
         --deep-dark: #181B22;
         --crema-1: #F1D8C4;
         --blue-1: #4CC9F0;
@@ -46,8 +46,8 @@ const GlobalStyles = createGlobalStyle`
         border-radius: 6px;
     }
     .filter-item__img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         margin: auto;
         img {
             margin-top: 4px;

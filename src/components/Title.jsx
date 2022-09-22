@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { MdFilterVintage } from 'react-icons/md'
+import { MdFilterVintage } from 'react-icons/md';
+import teamsImg from '../assets/img/teamsImg.png'
 
 const TitleStyles = styled.div`
-    h1 {
+    h2 {
         display: flex;
         justify-content: center;
         gap: 1rem;
@@ -12,11 +13,8 @@ const TitleStyles = styled.div`
         margin: auto;
         text-align: center;
         padding: 2rem;
-        color: var(--crema-1);
-        background: var(--crema-1);
-        background: -webkit-linear-gradient(to left, var(--crema-1) 0%, var(--blue-1) 50%, var(--crema-1) 100%);
-        background: -moz-linear-gradient(to left, var(--crema-1) 0%, var(--blue-1) 50%, var(--crema-1) 100%);
-        background: linear-gradient(to left, var(--crema-1) 0%, var(--blue-1) 50%, var(--crema-1) 100%);
+        color: #FFF;
+        background: #FFF;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         span {
@@ -31,7 +29,7 @@ const TitleStyles = styled.div`
 const Title = () => {
     return (
         <TitleStyles>
-            <h1 className='title'><span><MdFilterVintage/></span>Insta-Filters</h1>
+            <h2 className='title'><span><img src={teamsImg} style={{width: '25px'}}/></span>Teams Meeting</h2>
         </TitleStyles>
     )
 }

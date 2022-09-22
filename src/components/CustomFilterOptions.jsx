@@ -71,9 +71,9 @@ const CustomFilterOptions = ({ imgRef }) => {
 
     const setCustomFilterClass = () => {
         const style = `contrast(${contrast}%) brightness(${brightness}%) saturate(${saturate}%) sepia(${sepia}%) grayScale(${gray}%)`
-
+        console.log("custonStyle:::", style);
         const divImg = imgRef.current
-        divImg.style.filter = style
+        divImg.video.style.filter = style
     }
 
     return (
