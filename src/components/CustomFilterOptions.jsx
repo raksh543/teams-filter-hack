@@ -6,8 +6,8 @@ import 'rc-slider/assets/index.css';
 
 const CustomFilterOptionsStyles = styled.div`
     .customFilters-container {
-        width: 400px;
-        margin-right: 100px;
+        width: 350px;
+        margin-left: 30px;
     }
     .customFilters-item {
         margin: 3rem 0; 

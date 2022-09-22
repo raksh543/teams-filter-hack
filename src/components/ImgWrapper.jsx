@@ -10,6 +10,7 @@ const ImgWrapperStyles = styled.div`
     // width: 100%;
     display: flex;
     justify-content: space-between;
+    z-index: 0;
     .img-container {
         width: fit-content;
         max-width: 80%;

@@ -12,6 +12,7 @@ import VideoPlayer from '../components/VideoPlayer';
 import Webcam from "react-webcam";
 import headerImg from '../assets/img/header.png';
 import rightTab from '../assets/img/rightTab.png';
+import buttons from '../assets/img/buttons.png';
 
 const HomeStyles = styled.div`
     background-color: #201F1F;
@@ -44,14 +45,16 @@ const Home = () => {
 
     const [filterClass, setFilterClass] = useState('filter-normal')
     const [openCustom, setOpenCustom] = useState(false)
+    const [rightNavTab, setRightnavTab] = useState(true)
 
     const imgRef = useRef(null)
     const webcamRef = useRef();
     console.log("loggg:::", imgRef);
-    useEffect(() => { console.log("hey") }, [imgRef]);
+    useEffect(() => { console.log("hey") }, [imgRef, rightNavTab]);
     return (
         <HomeStyles>
-            <img src={headerImg} style={{height: '40px'}}/>
+            <img src={headerImg} style={{height: '40px', position: 'fixed', zIndex: '1000'}}/>
+            <br/>
             <Title />
             {/* <Webcam
                 filterClass={filterClass}
@@ -66,8 +69,9 @@ const Home = () => {
                 imgRef={imgRef}
             />
             
-            <img src={rightTab} style={{height: '350px', width :'400px'}}/>
+            {rightNavTab && <img src={rightTab} style={{height: '350px', width :'400px'}}/>}
             </div>
+            <img src={buttons} style={{height: '45px', marginLeft: '110px', marginTop: '-40px'}}/>
             <br/>
             <br/>
             <div className='filters-container'>
@@ -81,11 +85,13 @@ const Home = () => {
                     setFilterClass={setFilterClass}
                     imgRef={imgRef}
                 />
+                <div onClick={() => setRightnavTab(false)}>
                 <CustomFilter
                     filterClass={filterClass}
                     setFilterClass={setFilterClass}
                     setOpenCustom={setOpenCustom}
                 />
+                </div>
             </div>
         </HomeStyles>
     )
