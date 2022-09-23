@@ -13,7 +13,7 @@ const NormalFilter = ({filterClass, setFilterClass, imgRef}) => {
         divImg.video.style.filter = style
     }
     return (
-        <div>
+        <div  style={{width: '30px'}}>
             <div
                 className={`filter-item ${filterClass === 'filter-normal' ? 'filter-item--selected' : ''}`}
                 onClick={() => applyFilterClass()}
