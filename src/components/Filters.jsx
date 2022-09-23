@@ -31,35 +31,84 @@ const Filters = ({ filterClass, setFilterClass, imgRef }) => {
             name: 'Aden',
             class: 'filter-aden',
             property: {
-                sepia: 20, brightness: 115, saturate: 140, gray: 0, contrast:100,
+                sepia: 20, brightness: 115, saturate: 140, gray: 0, contrast:100, hueRotate: '0',
+            }
+        },
+        {
+            name: 'Helena',
+            class: 'filter-helena',
+            property: {
+                sepia:50, contrast:105, brightness:105, saturate:135, gray: 0, hueRotate: 0
+            }
+        },
+        {
+            name: 'Sierra',
+            class: 'filter-sierra',
+            property: {
+                sepia:25, contrast:150, brightness:90, saturate:100, gray: 0, hueRotate: 0
+            }
+        },
+        {
+            name: 'Inkwell',
+            class: 'filter-inkwell',
+            property: {
+                brightness: 125, contrast: 85, gray: 100, sepia:.0, saturate: 100, hueRotate: 0
+            }
+        },
+        {
+            name: 'Perpetua',
+            class: 'filter-perpetua',
+            property: {
+                sepia:0, contrast:110, brightness:125, saturate:110, gray: 0, hueRotate: 0
+            }
+        },
+        {
+            name: 'Crema',
+            class: 'filter-crema',
+            property: {
+                sepia:50, contrast:125, brightness:115, saturate:90, gray: 0, hueRotate: '-2',
+            }
+        },
+        {
+            name: 'Hudson',
+            class: 'filter-Inkwell',
+            property: {
+                sepia:25, contrast:120, brightness:120, saturate:105, gray: 0, hueRotate: -15,
+            }
+        },
+        {
+            name: 'Clarendon',
+            class: 'filter-clarendon',
+            property: {
+                sepia:15, contrast:125, brightness:125, saturate:100, gray: 0, hueRotate: 5
             }
         },
         {
             name: 'Amaro',
             class: 'filter-amaro',
             property: {
-                sepia:35, contrast:110, brightness:120, saturate:130, gray: 0
+                sepia:35, contrast:110, brightness:120, saturate:130, gray: 0, hueRotate: '0',
             }
         },
         {
             name: 'Ashby',
             class: 'filter-ashby',
             property: {
-                sepia:50, contrast:120, brightness:100, saturate:180, gray: 0
+                sepia:50, contrast:120, brightness:100, saturate:180, gray: 0, hueRotate: '0',
             }
         },
         {
             name: 'Brannan',
             class: 'filter-brannan',
             property: {
-                sepia:25, contrast:125, brightness:125, saturate:90, gray: 0, hueRotate: '-2deg',
+                sepia:25, contrast:125, brightness:125, saturate:90, gray: 0, hueRotate: '0',
             }
         },
         {
             name: 'Brooklyn',
             class: 'filter-brooklyn',
             property: {
-                sepia:.35, contrast:1.1, brightness:1.2, saturate:100, gray: 0, hueRotate: '5deg'
+                sepia:35, contrast:110, brightness:120, saturate:100, gray: 0, hueRotate: '5'
             }
         },
         {
@@ -67,20 +116,6 @@ const Filters = ({ filterClass, setFilterClass, imgRef }) => {
             class: 'filter-charmes',
             property: {
                 sepia:25, contrast:125, brightness:125, saturate:135, gray: 0, hueRotate:'-5deg',
-            }
-        },
-        {
-            name: 'Clarendon',
-            class: 'filter-clarendon',
-            property: {
-                sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
-            }
-        },
-        {
-            name: 'Crema',
-            class: 'filter-crema',
-            property: {
-                sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
             }
         },
         {
@@ -116,27 +151,6 @@ const Filters = ({ filterClass, setFilterClass, imgRef }) => {
             class: 'filter-hafe',
             property: {
                 sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
-            }
-        },
-        {
-            name: 'Helena',
-            class: 'filter-helena',
-            property: {
-                sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
-            }
-        },
-        {
-            name: 'Hudson',
-            class: 'filter-Inkwell',
-            property: {
-                sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
-            }
-        },
-        {
-            name: 'Inkwell',
-            class: 'filter-inkwell',
-            property: {
-                brightness: 1.25, contrast: .85, gray: 1, sepia:.0, saturate: 1
             }
         },
         {
@@ -196,13 +210,6 @@ const Filters = ({ filterClass, setFilterClass, imgRef }) => {
             }
         },
         {
-            name: 'Perpetua',
-            class: 'filter-perpetua',
-            property: {
-                sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
-            }
-        },
-        {
             name: 'Poprocket',
             class: 'filter-poprocket',
             property: {
@@ -219,13 +226,6 @@ const Filters = ({ filterClass, setFilterClass, imgRef }) => {
         {
             name: 'Rise',
             class: 'filter-rise',
-            property: {
-                sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
-            }
-        },
-        {
-            name: 'Sierra',
-            class: 'filter-sierra',
             property: {
                 sepia:.35, contrast:1.1, brightness:1.2, saturate:1.3, gray: 1
             }
@@ -313,7 +313,7 @@ const Filters = ({ filterClass, setFilterClass, imgRef }) => {
     const applyFilterClass = (filter) => {
         setFilterClass(filter.class);
         console.log(filter);
-        const style = `contrast(${filter.property.contrast}%) brightness(${filter.property.brightness}%) saturate(${filter.property.saturate}%) sepia(${filter.property.sepia}%) grayScale(${filter.property.gray}%)`
+        const style = `contrast(${filter.property.contrast}%) brightness(${filter.property.brightness}%) saturate(${filter.property.saturate}%) sepia(${filter.property.sepia}%) grayScale(${filter.property.gray}%) hue-rotate(${filter.property.hueRotate}deg)`
 
         const divImg = imgRef.current
         divImg.video.style.filter = style

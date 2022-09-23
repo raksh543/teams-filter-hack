@@ -5,14 +5,20 @@ import { MdFilterVintage } from 'react-icons/md';
 import teamsImg from '../assets/img/teamsImg.png'
 
 const TitleStyles = styled.div`
-    h2 {
+    text-align: center;
+    color: #FFF;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    span {
         display: flex;
+        font-size: 22px;
+        font-weight: 900;
         justify-content: center;
         gap: 1rem;
         width: fit-content;
         margin: auto;
         text-align: center;
-        padding: 2rem;
+        // padding: 2rem;
         color: #FFF;
         background: #FFF;
         -webkit-background-clip: text;
@@ -29,7 +35,8 @@ const TitleStyles = styled.div`
 const Title = () => {
     return (
         <TitleStyles>
-            <h2 className='title'><span><img src={teamsImg} style={{width: '25px'}}/></span>Teams Meeting</h2>
+            {/* <span>Choose your audio and video settings for</span> */}
+            <span className='title'><span><img src={teamsImg} style={{ width: '28px' }} /></span>Meeting in "General"</span>
         </TitleStyles>
     )
 }
