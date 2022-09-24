@@ -13,7 +13,7 @@ import Webcam from "react-webcam";
 import headerImg from '../assets/img/header.png';
 import rightTab from '../assets/img/rightTab.png';
 import buttons from '../assets/img/buttons.png';
-import effatar from '../assets/img/eff+avatar.png';
+import effatar from '../assets/img/eff+avatar1.png';
 
 const HomeStyles = styled.div`
     background-color: #201F1F;
@@ -47,6 +47,7 @@ const Home = () => {
     const [filterClass, setFilterClass] = useState('filter-normal')
     const [openCustom, setOpenCustom] = useState(false)
     const [rightNavTab, setRightnavTab] = useState(true)
+    const [showFilters, setShowFilters] = useState(false);
 
     const imgRef = useRef(null)
     const webcamRef = useRef();
@@ -64,41 +65,45 @@ const Home = () => {
                 imgRef={webcamRef} videoConstraints={videoConstraints} width={cameraWidth} height={cameraHeight}
             /> */}
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', objectFit: 'cover', alignItems: 'center' }}>
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    
-                <ImgWrapper
-                    filterClass={filterClass}
-                    openCustom={openCustom}
-                    imgRef={imgRef}
-                />
-                <img src={effatar} style={{ height: '35px', width: '600px', marginLeft: '1px', marginTop: '-58px', zIndex: 1000}}/>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+
+                    <ImgWrapper
+                        filterClass={filterClass}
+                        openCustom={openCustom}
+                        imgRef={imgRef}
+                    />
+                    <img src={effatar} style={{ height: '35px', width: '600px', marginLeft: '1px', marginTop: '-58px', zIndex: 1000, cursor: 'pointer' }} onClick={() => setShowFilters(true)} />
                 </div>
 
                 {rightNavTab && <img src={rightTab} style={{ height: '350px', width: '400px' }} />}
-            
+
             </div>
-            {rightNavTab && <img src={buttons} style={{ height: '45px', marginLeft: '110px', marginTop: '-40px' }} />}
+            {rightNavTab && <img src={buttons} style={{ height: '45px', marginLeft: '85px', marginTop: '-40px' }} />}
             <br />
             <br />
-            <div className='filters-container' onClick={() => setRightnavTab(true)}>
-                <NormalFilter
-                    filterClass={filterClass}
-                    setFilterClass={setFilterClass}
-                    imgRef={imgRef}
-                />
-                <Filters
-                    filterClass={filterClass}
-                    setFilterClass={setFilterClass}
-                    imgRef={imgRef}
-                />
-            </div>
-            <div style={{marginTop: '-160px', marginLeft: '900px'}} onClick={() => setRightnavTab(false)}>
+            {showFilters &&
+            <>
+                <div className='filters-container' onClick={() => setRightnavTab(true)}>
+                    <NormalFilter
+                        filterClass={filterClass}
+                        setFilterClass={setFilterClass}
+                        imgRef={imgRef}
+                    />
+                    <Filters
+                        filterClass={filterClass}
+                        setFilterClass={setFilterClass}
+                        imgRef={imgRef}
+                    />
+                </div>
+            <div style={{ marginTop: '-160px', marginLeft: '1000px' }} onClick={() => setRightnavTab(false)}>
                 <CustomFilter
                     filterClass={filterClass}
                     setFilterClass={setFilterClass}
                     setOpenCustom={setOpenCustom}
                 />
             </div>
+            </>
+            }
         </HomeStyles>
     )
 }
